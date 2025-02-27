@@ -4,7 +4,8 @@ History
 1.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Updated metadata
+- Updated github action to ubuntu 22 
 
 
 1.2.6 (2022-06-01)
