@@ -6,7 +6,7 @@ History
 
 - Updated metadata
 - Updated github action to ubuntu 22 
-
+- Updated to Qt6 (QGIS4)
 
 1.2.6 (2022-06-01)
 ------------------

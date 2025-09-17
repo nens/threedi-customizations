@@ -3,12 +3,6 @@ ThreeDiCustomizations
 
 A QGIS plugin containing N&S 3Di styles. To be used together with the ThreeDiToolbox plugin, as part of the 3Di-modeller-interface.
 
-Installation Requirements
--------------------------
-- Repository contains an already compiled gui file ``gui/generated/resources_rc.py``. In case of style changes (icons and/or splashscreen), new style must be rebuilt by running 
-``# pyrcc5 ui/resources.qrc -o gui/generated/resources_rc.py``.
-pyrcc5 is part of the Debian package ``pyqt-dev-tools``.
-
 Deployment
 ----------
 

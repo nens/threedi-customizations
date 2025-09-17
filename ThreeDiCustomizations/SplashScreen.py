@@ -29,14 +29,12 @@ import re
 import sys
 import webbrowser
 
-from qgis.PyQt.Qt import QAction
-from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtGui import QAction
 from qgis.PyQt.QtCore import QCoreApplication
 from qgis.PyQt.QtCore import QFileSystemWatcher
 from qgis.PyQt.QtCore import QSettings
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtGui import QPixmap
-from qgis.PyQt.QtWidgets import qApp
 from qgis.PyQt.QtWidgets import QApplication
 from qgis.PyQt.QtWidgets import QMenu
 from qgis.PyQt.QtWidgets import QDialog
@@ -45,7 +43,7 @@ from qgis.PyQt.uic import loadUi
 
 from qgis.utils import iface
 
-from ThreeDiCustomizations.gui.generated import resources_rc
+IMAGES_DIR = os.path.join(os.path.dirname(__file__), "images")
 
 
 def reload_style(path):
@@ -90,46 +88,43 @@ class SplashScreen(object):
         self.app.startDragTime()
 
         self.iface.initializationCompleted.connect(self.customization)
-        qApp.processEvents()
+        QApplication.instance().processEvents()
 
         self.applyStyle()
 
     def initGui(self):
         QSettings().setValue("/qgis/hideSplash", True)
-        qApp.processEvents()
+        QApplication.instance().processEvents()
 
-        icon = QIcon(":/3Di_images/3Di_images/images/logo.png")
+        icon = QIcon(os.path.join(IMAGES_DIR, "logo.png"))
         self.app.setWindowIcon(icon)
         self.iface.mainWindow().setWindowIcon(icon)
 
         self.iface.mainWindow().setWindowTitle(self.windowTitle)
 
-        qApp.processEvents()
+        QApplication.instance().processEvents()
 
         if not self.iface.mainWindow().isVisible():
-            self.splash_pix = QPixmap(":/3Di_images/3Di_images/images/splash.png")
-            self.splash = QSplashScreen(self.splash_pix, Qt.WindowStaysOnTopHint)
+            self.splash_pix = QPixmap(os.path.join(IMAGES_DIR, "splash.png"))
             self.splash = QSplashScreen(self.splash_pix)
             self.splash.setMask(self.splash_pix.mask())
             self.splash.show()
-            qApp.processEvents()
+            QApplication.instance().processEvents()
         self.applyStyle()
         self.addHelpMenuItem()
-        return
 
     def run(self):
         pass
 
     def unload(self):
-        qApp.processEvents()
+        QApplication.instance().processEvents()
         self.iface.initializationCompleted.disconnect(self.customization)
         self.helpAction.deleteLater()
-        return
 
     def customization(self):
         self.splash.finish(self.iface.mainWindow())
         self.iface.mainWindow().setWindowTitle(self.windowTitle)
-        qApp.processEvents()
+        QApplication.instance().processEvents()
         self.applyStyle()
 
     def applyStyle(self):
@@ -146,7 +141,7 @@ class SplashScreen(object):
     @staticmethod
     def about_3di_mi_dialog():
         dialog = About3DiMIDialog(iface.mainWindow())
-        dialog.exec_()
+        dialog.exec()
 
     def find_3di_menu(self):
         for i, action in enumerate(self.iface.mainWindow().menuBar().actions()):
