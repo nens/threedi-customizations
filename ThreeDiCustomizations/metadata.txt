@@ -2,7 +2,7 @@
 name=3Di Customisations
 qgisMinimumVersion=3.4.5
 qgisMaximumVersion=3.99
-description=Customizes the QGIS user interface: paints main menu red, adds '3Di' item to main menu, and some other customisations.
+description=Sunset version; all functionality is removed.
 version=1.2.8
 author=3Di Water Management
 email=servicedesk@nelen-schuurmans.nl
