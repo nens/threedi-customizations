@@ -18,3 +18,8 @@ hasProcessingProvider=no
 experimental=False
 deprecated=False
 supportsQt6=True
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+plugin_dependencies=Rana Customisations==0.1.1
