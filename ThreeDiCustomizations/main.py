@@ -3,7 +3,7 @@
 /***************************************************************************
  ThreeDiCustomizations
                                  A QGIS plugin
- Sunset version; all functionality is removed
+ SplashScreen and other customizations for the 3Di_Modeller_Interface
                              -------------------
         begin                : 2018-08-22
         Marco Duiker - MD-kwadraat
@@ -12,6 +12,8 @@
         Adapted from All4GIS/Load-QSS and All4GIS/fake_splash
         Both by Francisco Raga
  ***************************************************************************/
+
+
 
 /***************************************************************************
  *                                                                         *
@@ -24,6 +26,15 @@
 """
 
 
-def classFactory(iface):
-    from .main import Main
-    return Main(iface)
+class Main(object):
+    def __init__(self, _):
+        pass
+
+    def initGui(self):
+        pass
+
+    def run(self):
+        pass
+
+    def unload(self):
+        pass
