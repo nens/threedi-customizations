@@ -1,7 +1,7 @@
 History
 =======
 
-1.2.8 (unreleased)
+1.2.8 (2025-12-19)
 ------------------
 
 - Sunset plugin, remove contents
